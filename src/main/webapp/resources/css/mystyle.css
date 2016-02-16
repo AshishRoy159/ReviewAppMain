@@ -1,0 +1,206 @@
+@font-face{
+	font-family: dosis;
+	src: url("../fonts/Dosis-Regular.otf");
+}
+body{
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid white;
+}
+#head{
+	height: 100px;
+	margin: 10px;
+}
+#search{
+	margin: 10px;
+}
+#searchbox{
+	margin: 10px;
+	margin-top: 10px;	
+	width: 200px;
+}
+#searchbtn{
+	margin: 10px;
+	margin-top: 10px;
+	padding: 10px;
+	padding-top: 10px;
+
+}
+#title{
+	font-family: dosis;
+	font-size: 4em;
+	margin: 10px;
+	padding: 10px;
+}
+#nav{
+	font-family: dosis;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#banner{
+	height: auto;
+	width: 800px;
+}
+#recent{
+	font-family: dosis;
+	font-size: 30px;
+}
+#popular{
+	font-family: dosis;
+	font-size: 30px;
+}
+#recentimg{
+	height: 250px;
+	width: 250px;
+}
+#pop{
+	font-family: dosis;
+	font-size: 1.5em;
+}
+#mostreview{
+	font-family: dosis;
+	font-size: 3em;
+}
+#content{
+	border-right: 1px solid #F8F8FF;
+}
+#panelhead{
+	font-family: dosis;
+	font-size: 2em;
+}
+#top{
+	height: 200px;
+	width: 200px;
+}
+#rating{
+	height: 15px;
+	width: 100px;
+}
+#blank{
+	border: 1px solid white;
+	margin: 10px;
+	height: 10px;
+}
+#social{
+	align: right;
+}
+#socialimg{
+	height: 30px;
+	width: 30px;
+}
+#login{
+	width: 180px;
+}
+#logintxt{
+	font-size: 1.2em;
+	margin-top: 5px;
+}
+#logindiv{
+	margin-top: 3px;
+	padding-top: 3px;
+}
+#new{
+	font-family: dosis;
+}
+#regtitle{
+	font-family: dosis;
+	font-size: 3em;
+}
+.panel{
+	padding: 5px;
+}
+#top2{
+	height: 150px;
+	width: 150px;
+}
+#developer{
+	margin-left: 20px;
+	font-family: dosis;
+	font-size: 1.2em;
+}
+#ratingdt{
+	margin-top: 50px;
+}
+#details{
+	font-family: dosis;
+	font-size: 2em;
+	margin-left: 50px;
+}
+#detail{
+	margin-left: 50px;
+}
+#ratingtxt{
+	margin-top: 50px;
+	font-family: dosis;
+	font-size: 1.7em;
+}
+#comment{
+	margin-left: 100px;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+#box{
+	padding: 2px;
+}
+
+blockquote{
+    border-left:none
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);   
+}
+
+.quote-box{
+    
+    overflow: hidden;
+    margin-top: -50px;
+    margin-left: 50px;
+    padding-top: -100px;
+    border-radius: 17px;
+    background-color: #4ADFCC;
+    margin-top: 25px;
+    color:white;
+    width: 700px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+
+.quotation-mark{
+    
+    margin-top: -10px;
+    font-weight: bold;
+    font-size:100px;
+    color:white;
+    font-family: "Times New Roman", Georgia, Serif;
+    
+}
+
+.quote-text{
+    
+    font-size: 19px;
+    margin-top: -65px;
+}
+
+#jRate{
+	padding: 30px;
+}
+
+#largeblank{
+	border: 1px solid white;
+	margin: 50px;
+	height: 50px;
+}
