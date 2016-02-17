@@ -6,10 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin Home</title>
-<link href="../resources/css/bootstrap.css" rel="stylesheet" />
-<link href="../resources/css/mystyle.css" rel="stylesheet" />
-<script src="../resources/js/jquery-2.2.0.js"></script>
-<script src="../resources/js/myScript.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/mystyle.css" rel="stylesheet" />
+<script src="${pageContext.request.contextPath}/resources/js/jquery-2.2.0.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/myScript.js"></script>
 </head>
 <body>
 	<%

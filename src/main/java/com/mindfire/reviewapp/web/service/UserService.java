@@ -37,8 +37,7 @@ public class UserService {
 				newUser.setUsername(dto.getUsername());
 				newUser.setPassword(new BCryptPasswordEncoder().encode(dto.getPassword()));
 				newUser.setRole("user");
-				// newUser.setCnfPassword(user.getCnfPassword());
-
+				
 				User createdUser = userRepository.save(newUser);
 
 				System.out.println(createdUser);
@@ -70,7 +69,7 @@ public class UserService {
 				return "redirect:admin/index";
 			} else {
 				session.setAttribute("user", "user");
-				return "index";
+				return "redirect:index";
 			}
 		} else {
 			model.addAttribute("status", "Incorrect Username or Password!!");
@@ -96,7 +95,7 @@ public class UserService {
 
 	public String logoutUser(Model model, HttpSession session) {
 		session.invalidate();
-		return "index";
+		return "redirect:index";
 	}
 
 	public String changePassword(@ModelAttribute("password") PasswordDTO dto, Model model, HttpSession session) {
@@ -104,8 +103,16 @@ public class UserService {
 		List<User> user = userRepository.findByUsername(username);
 
 		String password = user.get(0).getPassword();
+		String newPass = new BCryptPasswordEncoder().encode(dto.getNewpassword());
 		if (user != null && new BCryptPasswordEncoder().matches(dto.getPassword(), password)) {
-
+			
+			userRepository.setNewPasswordForUser(username, newPass);
+			session.invalidate();
+			model.addAttribute("status","Successsfully Changed Password! Login to continue.");
+			return "redirect:../login";
+		} else {
+			model.addAttribute("status","Current Password is not correct!!");
+			return "changePassword";
 		}
 	}
 }

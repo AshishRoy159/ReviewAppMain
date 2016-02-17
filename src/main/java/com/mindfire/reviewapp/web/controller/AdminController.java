@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mindfire.reviewapp.web.dto.AppRegDTO;
+import com.mindfire.reviewapp.web.dto.AppSearchDTO;
 import com.mindfire.reviewapp.web.dto.PasswordDTO;
 import com.mindfire.reviewapp.web.dto.UserLoginDTO;
 import com.mindfire.reviewapp.web.service.AppService;
@@ -46,14 +47,15 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "admin/logout", method = RequestMethod.GET )
-	public String logout(Model model, HttpSession session){
+	public String logout(@ModelAttribute("search") AppSearchDTO dto, Model model, HttpSession session){
+		model.addAttribute("search", new AppSearchDTO());
 		return userService.logoutAdmin(model, session);
 	}
-	@RequestMapping(value = "admin/changePassword", method = RequestMethod.GET )
+	@RequestMapping(value = "admin/changePassword", method = RequestMethod.POST )
 	public String changePassword(@ModelAttribute("password") PasswordDTO dto, Model model, HttpSession session){
 		return userService.changePassword(dto, model, session);
 	}
-	@RequestMapping(value = "chngPassword", method = RequestMethod.GET)
+	@RequestMapping(value = "admin/chngPassword", method = RequestMethod.GET)
 	public String changepw(@ModelAttribute("password") PasswordDTO dto, Model model){
 		return "changePassword";
 	}

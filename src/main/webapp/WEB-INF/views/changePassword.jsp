@@ -6,17 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Change Password</title>
-<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="resources/css/mystyle.css">
-<script src="resources/js/jquery-2.2.0.js"></script>
-<script type="text/javascript" src="resources/js/myScript.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/mystyle.css">
+<script src="../resources/js/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="../resources/js/myScript.js"></script>
 </head>
 <body>
 <div class="container-fluid">
 		<div class="col-md-5"></div>
 		<div class="col-md-2">
 			<figure>
-				<img alt="Logo" src="resources/images/logo.png" height="150px" width="150px">
+				<img alt="Logo" src="../resources/images/logo.png" height="150px" width="150px">
 			</figure>
 		</div>
 		<div class="col-md-5"></div>
@@ -27,12 +27,13 @@
 	
 	<form:form method="post" name="chngPW" modelAttribute="password" action="changePassword">
 		<div class="container">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+			${status}
 				<div id="logindiv">
 					<div id="logintxt" class="col-md-4" align="right">Current Password:</div>
 					<div id="box" class="col-md-8" align="left">
-						<form:input path="password" cssClass="form-control" placeholder = "Enter Current Password"/>
+						<form:password path="password" cssClass="form-control" placeholder = "Enter Current Password"/>
 					</div>
 				</div>
 				<div id="logindiv">
@@ -51,12 +52,12 @@
 				<div class="col-md-8">
 					<div id="logindiv">
 						<input class="btn btn-default" type="submit" name="submit"
-							value="Login" /> <input class="btn btn-default" type="reset"
+							value="Change Password" /> <input class="btn btn-default" type="reset"
 							name="reset" value="Reset" />
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4"></div>
+			<div class="col-md-3"></div>
 		</div>
 	</form:form>
 </body>

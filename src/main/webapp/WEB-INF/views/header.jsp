@@ -1,8 +1,9 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <div class="container-fluid">
 	<section id="head">
 		<div class="col-md-1">
 			<figure>
-				<a href="index"><img alt="Logo" src="resources/images/logo.png"
+				<a href="${pageContext.request.contextPath}/index"><img alt="Logo" src="${pageContext.request.contextPath}/resources/images/logo.png"
 					height="100px" width="100px"></a>
 			</figure>
 		</div>
@@ -14,21 +15,21 @@
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<ul class="nav navbar-nav">
-			<li class="home" id="nav"><a href="index">Home</a></li>
-			<li class="and" id="nav"><a href="topAndroid">Android
+			<li class="home" id="nav"><a href="${pageContext.request.contextPath}/index">Home</a></li>
+			<li class="and" id="nav"><a href="${pageContext.request.contextPath}/topAndroid">Android
 					Apps</a></li>
-			<li class="ios" id="nav"><a href="topIPhone">iPhone
+			<li class="ios" id="nav"><a href="${pageContext.request.contextPath}/topIPhone">iPhone
 					Apps</a></li>
-			<li class="win" id="nav"><a href="topWindows">Windows
+			<li class="win" id="nav"><a href="${pageContext.request.contextPath}/topWindows">Windows
 					Apps</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li>
-				<form class="navbar-form" role="search">
+				<form:form method="post" name="searchform" cssClass="form-inline" modelAttribute="search" action="${pageContext.request.contextPath}/searchDetails">
 					<div class="input-group">
-						<input type="text" class="form-control pull-right"
+						<form:input path="name" cssClass="form-control pull-right"
 							style="width: 300px; margin-right: 35px, border: 1px solid black;"
-							placeholder="Search Apps"> <span class="input-group-btn">
+							placeholder="Search Apps"/> <span class="input-group-btn">
 							<button type="reset" class="btn btn-default">
 								<span class="glyphicon glyphicon-remove"> <span
 									class="sr-only">Close</span>
@@ -41,14 +42,14 @@
 							</button>
 						</span>
 					</div>
-				</form>
+				</form:form>
 			</li>
 			<li id="nav">
 			<%if(session.getAttribute("user") == null || session.getAttribute("user").equals("")){ %>
-			<a href="login"><span
+			<a href="${pageContext.request.contextPath}/login"><span
 					class="glyphicon glyphicon-log-in"></span> Login</a>
 				<% } else { %>
-				<a href="logout"><span
+				<a href="${pageContext.request.contextPath}/logout"><span
 					class="glyphicon glyphicon-log-in"></span> Logout</a>	
 					<% } %>
 					</li>

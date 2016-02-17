@@ -30,7 +30,7 @@ public class RegLoginController {
 	}
 	
 	@RequestMapping(value = "logout", method = RequestMethod.GET )
-	public String logout(Model model, HttpSession session){
+	public String logout(@ModelAttribute("login") UserLoginDTO dto, Model model, HttpSession session){
 		return userService.logoutUser(model, session);
 	}
 

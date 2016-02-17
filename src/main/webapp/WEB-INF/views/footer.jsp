@@ -12,10 +12,10 @@
 	</div>
 	<div class="col-md-2" id="social">
 		<a href="https://www.faceook.com"><img id="socialimg"
-			alt="facebook" src="resources/images/fbsocial.png"></a> <a
+			alt="facebook" src="${pageContext.request.contextPath}/resources/images/fbsocial.png"></a> <a
 			href="https://www.twitter.com"><img id="socialimg" alt="twitter"
-			src="resources/images/twsocial.png"></a> <a
+			src="${pageContext.request.contextPath}/resources/images/twsocial.png"></a> <a
 			href="https://www.linkedin.com"><img id="socialimg"
-			alt="linkedin" src="resources/images/lisocial.png"></a>
+			alt="linkedin" src="${pageContext.request.contextPath}/resources/images/lisocial.png"></a>
 	</div>
 </div>
