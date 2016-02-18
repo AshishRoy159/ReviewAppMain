@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,60 +46,31 @@
 					</div>
 					<div class="col-md-9">
 						<div class="container-fluid" align="left">
-							<form:form action="appRegister" modelAttribute="appregister"
+							<form:form action="addNewDeveloper" modelAttribute="developer"
 								method="post" onsubmit="return validate();">
 								<div class="container-fluid  col-md-9 " align="left">
 									<div align="center">
-										<h1 id="title" align="center">Add New App</h1>
+										<h1 id="title" align="center">Add New Developer</h1>
 										<div id="error">${status }</div>
 										<div id="logindiv" align="left">
-											<div id="logintxt" class="col-md-4" align="right">Application
-												Name:</div>
+											<div id="logintxt" class="col-md-4" align="right">Developer	Name:</div>
 											<div id="box" class="col-md-8" align="left">
-												<form:input path="appname" cssClass="form-control"
+												<form:input path="name" cssClass="form-control"
 													placeholder="Enter Application Name" required="required" />
-											</div>
-										</div>
-										<div id="logindiv">
-											<div id="logintxt" class="col-md-4" align="right">Developer
-												Name:</div>
-											<div id="box" class="col-md-8" align="left">
-											
-											<form:select path="devname" cssClass="form-control" required = "required">
-											<form:option value="">-- SELECT --</form:option>
-											<c:forEach var="i" items="${devs}">
-												<form:option value="${i.name}"><c:out value="${i.name}" /></form:option>
-											</c:forEach>
-											</form:select>
 											</div>
 										</div>
 										<div id="logindiv">
 											<div id="logintxt" class="col-md-4" align="right">Website:</div>
 											<div id="box" class="col-md-8" align="left">
 												<form:input path="website" cssClass="form-control"
-													placeholder="Enter Application's Website" required="required" />
+													placeholder="Enter Developer Website" required="required" />
 											</div>
 										</div>
 										<div id="logindiv">
-											<div id="logintxt" class="col-md-4" align="right">Application
-												Details:</div>
+											<div id="logintxt" class="col-md-4" align="right">Developer Address:</div>
 											<div id="box" class="col-md-8" align="left">
-												<form:textarea path="appdetails" cssClass="form-control"
+												<form:textarea path="address" cssClass="form-control"
 													placeholder="Enter Details" required="required" />
-											</div>
-										</div>
-										<div id="logindiv">
-											<div id="logintxt" class="col-md-4" align="right">Platform:</div>
-											<div id="box" class="col-md-8" align="left">
-												<form:input path="platform" cssClass="form-control" value=""
-													placeholder="Enter Platform" required="required" />
-											</div>
-										</div>
-										<div id="logindiv">
-											<div id="logintxt" class="col-md-4" align="right">Screenshots:</div>
-											<div id="box" class="col-md-8" align="left">
-												<input type="file" class="btn btn-default form-control"
-													placeholder="Enter Password Again" required="required" />
 											</div>
 										</div>
 										<div class="col-md-4"></div>

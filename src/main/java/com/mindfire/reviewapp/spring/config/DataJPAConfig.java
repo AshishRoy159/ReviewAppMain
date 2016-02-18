@@ -18,6 +18,11 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * This Class Contains all Configurations for Spring Data JPA.
+ * @author mindfire
+ *
+ */
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories("com.mindfire.reviewapp.web.repository")

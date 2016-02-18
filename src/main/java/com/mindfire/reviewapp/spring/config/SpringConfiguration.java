@@ -10,6 +10,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+/**
+ * This is the Configuration file for thw Application.
+ * @author mindfire
+ *
+ */
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.mindfire.reviewapp")

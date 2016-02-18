@@ -1,5 +1,10 @@
 package com.mindfire.reviewapp.web.dto;
 
+/**
+ * The DTO class for the Userinfo table which deals with registration of the User
+ * @author mindfire
+ *
+ */
 public class UserRegDTO {
 
 	private String email;

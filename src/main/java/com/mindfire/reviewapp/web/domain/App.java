@@ -32,6 +32,7 @@ public class App implements Serializable {
 
 	private String details;
 
+
 	private Integer developerid;
 	
 	@Column(nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -44,6 +45,16 @@ public class App implements Serializable {
 	private float rating;
 
 	private String screenshots;
+	
+	private String website;
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
 
 	public App() {
 	}

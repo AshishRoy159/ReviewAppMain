@@ -20,9 +20,10 @@ import com.mindfire.reviewapp.web.dto.UserRegDTO;
 import com.mindfire.reviewapp.web.service.AppService;
 
 /**
- * Handles requests for the application home page.
+ * Handles requests for the application home page and other page's mapping.
+ * @author mindfire
+ *
  */
-
 @Controller
 public class HomeController {
 	
@@ -33,6 +34,10 @@ public class HomeController {
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
+	 * @param dto
+	 * @param locale
+	 * @param model
+	 * @return returns the home page.
 	 */
 	@RequestMapping(value = {"/","index"}, method = RequestMethod.GET)
 	public String home(@ModelAttribute("search") AppSearchDTO dto, Locale locale, Model model) {
@@ -49,27 +54,57 @@ public class HomeController {
 		return "index";
 	}
 	
+	/**
+	 * Maps the login page of the application
+	 * @param model
+	 * @param dto
+	 * @return returns the login page
+	 */
 	@RequestMapping(value = "login")
 	public String login(Model model, @ModelAttribute("login") UserLoginDTO dto){
 		model.addAttribute("login", new UserLoginDTO());
 		return "login";
 	}
 	
+	/**
+	 * Maps the register page of the application
+	 * @param model
+	 * @param dto
+	 * @return returns the registration page for the user.
+	 */
 	@RequestMapping(value = "register")
 	public String register(Model model, @ModelAttribute("register") UserRegDTO dto){
 		model.addAttribute("register", new UserRegDTO());
 		return "register";
 	}
+	/**
+	 * Shows all the apps which are on android platform on a page
+	 * @param dto
+	 * @param model
+	 * @return returns the page with the list of application.
+	 */
 	@RequestMapping(value = "topAndroid")
 	public ModelAndView topAndroid(@ModelAttribute("search") AppSearchDTO dto, Model model){
 		model.addAttribute("search", new AppSearchDTO());
 		return appService.topAndroid();
 	}
+	/**
+	 * Shows all the apps which are on windows platform on a page
+	 * @param dto
+	 * @param model
+	 * @return returns the page with the list of application.
+	 */
 	@RequestMapping(value = "topWindows")
 	public ModelAndView topWindows(@ModelAttribute("search") AppSearchDTO dto, Model model){
 		model.addAttribute("search", new AppSearchDTO());
 		return appService.topWindows();
 	}
+	/**
+	 * Shows all the apps which are on iphone platform on a page
+	 * @param dto
+	 * @param model
+	 * @return returns the page with the list of application.
+	 */
 	@RequestMapping(value = "topIPhone")
 	public ModelAndView topIPhone(@ModelAttribute("search") AppSearchDTO dto, Model model){
 		model.addAttribute("search", new AppSearchDTO());

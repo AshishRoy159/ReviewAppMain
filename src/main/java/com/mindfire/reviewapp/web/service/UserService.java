@@ -1,7 +1,5 @@
 package com.mindfire.reviewapp.web.service;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +14,29 @@ import com.mindfire.reviewapp.web.dto.UserLoginDTO;
 import com.mindfire.reviewapp.web.dto.UserRegDTO;
 import com.mindfire.reviewapp.web.repository.UserRepository;
 
+/**
+ * This is a Service class for all User related services.
+ * @author mindfire
+ *
+ */
 @Service
 public class UserService {
 
 	@Autowired
 	public UserRepository userRepository;
 
+	/**
+	 * Adds a new entry of the user to the table.
+	 * @param dto
+	 * @param model 
+	 * @return returns the login page if successful, else returns to the registration page.
+	 */
 	public String createUser(UserRegDTO dto, Model model) {
 
-		List<User> existingUser = userRepository.findByUsername(dto.getUsername());
-		if (existingUser.isEmpty()) {
-			List<User> userExists = userRepository.findByEmail(dto.getEmail());
-			if (userExists.isEmpty()) {
+		User existingUser = userRepository.findByUsername(dto.getUsername());
+		if (existingUser == null || existingUser.equals("")) {
+			User userExists = userRepository.findByEmail(dto.getEmail());
+			if (userExists == null || userExists.equals("")) {
 
 				User newUser = new User();
 
@@ -44,7 +53,8 @@ public class UserService {
 				if (createdUser.equals(null)) {
 					return "register";
 				} else {
-					return "doRegister";
+					model.addAttribute("status", "Registerd Successfully!!. Log in to continue.");
+					return "login";
 				}
 			} else {
 				model.addAttribute("userExists", "Email already Registered!!");
@@ -56,15 +66,23 @@ public class UserService {
 		}
 	}
 
+	/**
+	 * this method checks in the database eith provided credentials and if they match, logs in the user
+	 * @param dto
+	 * @param session
+	 * @param model
+	 * @return returns to login page if unsuccessful, else return to the website's index or admin index
+	 * depending on the role.
+	 */
 	public String loginUser(UserLoginDTO dto, HttpSession session, Model model) {
 
-		List<User> checkUser = userRepository.findByUsername(dto.getUsername());
+		User checkUser = userRepository.findByUsername(dto.getUsername());
 
-		String password = checkUser.get(0).getPassword();
+		String password = checkUser.getPassword();
 		if (checkUser != null && new BCryptPasswordEncoder().matches(dto.getPassword(), password)) {
 
-			session.setAttribute("username", checkUser.get(0).getUsername());
-			if (checkUser.get(0).getRole().equals("admin")) {
+			session.setAttribute("username", checkUser.getUsername());
+			if (checkUser.getRole().equals("admin")) {
 				session.setAttribute("user", "admin");
 				return "redirect:admin/index";
 			} else {
@@ -77,10 +95,17 @@ public class UserService {
 		}
 	}
 
-	public String viewProfile(UserLoginDTO dto, Model model) {
-		List<User> profile = userRepository.findByUsername("ashish");
+	/**
+	 * This method provides the full credentials of the user/admin.
+	 * @param dto
+	 * @param model
+	 * @return returns the page with full profile details
+	 */
+	public String viewProfile(UserLoginDTO dto, Model model, HttpSession session) {
+		String username = (String)session.getAttribute("username");
+		User profile = userRepository.findByUsername(username);
 
-		if (profile.isEmpty()) {
+		if (profile == null || profile.equals("")) {
 			model.addAttribute("error", "Error Occurred!!");
 			return "redirect:index";
 		} else {
@@ -88,21 +113,40 @@ public class UserService {
 		}
 	}
 
+	/**
+	 * This method logs out the admin.
+	 * @param model
+	 * @param session
+	 * @return returns to the index page of the website.
+	 */
 	public String logoutAdmin(Model model, HttpSession session) {
 		session.invalidate();
 		return "redirect:../index";
 	}
 
+	/**
+	 * This method logs out the User.
+	 * @param model
+	 * @param session
+	 * @return returns to the index page of the website.
+	 */
 	public String logoutUser(Model model, HttpSession session) {
 		session.invalidate();
 		return "redirect:index";
 	}
 
+	/**
+	 * This method changes the password of the user
+	 * @param dto
+	 * @param model
+	 * @param session
+	 * @return returns the information and redirects to login page.
+	 */
 	public String changePassword(@ModelAttribute("password") PasswordDTO dto, Model model, HttpSession session) {
 		String username = (String) session.getAttribute("username");
-		List<User> user = userRepository.findByUsername(username);
+		User user = userRepository.findByUsername(username);
 
-		String password = user.get(0).getPassword();
+		String password = user.getPassword();
 		String newPass = new BCryptPasswordEncoder().encode(dto.getNewpassword());
 		if (user != null && new BCryptPasswordEncoder().matches(dto.getPassword(), password)) {
 			

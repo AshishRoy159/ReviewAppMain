@@ -15,8 +15,7 @@
 		<%@ include file="/WEB-INF/views/header.jsp"%>
 	</div>
 	<div class="container-fluid">
-		<c:forEach var="i" items="${apps}">
-			<div id="content" class="col-md-8">
+		<div id="content" class="col-md-8">
 				<figure>
 					<img alt="App Banner" src="${pageContext.request.contextPath}/resources/images/facebook.png"
 						height="300px" width="750px">
@@ -24,10 +23,10 @@
 				<div class="container-fluid">
 					<div class="col-md-9">
 						<h1 id="title">
-							<c:out value="${i.name}" />
+							<c:out value="${apps.name}" />
 						</h1>
 						<h4 id="developer">
-							<b>Developed By: </b>
+							<b>Developed By: </b>${dev }
 						</h4>
 					</div>
 					<div class="col-md-3" align="right">
@@ -41,13 +40,13 @@
 				<div class="container-fluid">
 					<div class="col-md-9">
 						<h4 id="developer">
-							<b>Platform : </b> ${i.platform }
+							<b>Platform : </b> ${apps.platform }
 						</h4>
 					</div>
 				</div>
 				<section>
 					<h2 id="details">Details:</h2>
-					<div id="detail">${i.details }</div>
+					<div id="detail">${apps.details }</div>
 				</section>
 				<div id="blank"></div>
 				<div class="container-fluid">
@@ -123,7 +122,6 @@
 					</div>
 				</div>
 			</div>
-		</c:forEach>
 
 		<div class="col-md-4">
 			<div class="panel panel-header">

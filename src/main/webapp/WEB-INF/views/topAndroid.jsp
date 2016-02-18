@@ -36,7 +36,7 @@
 						</figure>
 					</div>
 					<div class="col-md-6"></div>
-					<a class="btn btn-info" href="#">Review</a>
+					<a class="btn btn-info" href="detailnreview/<c:out value="${i.appId}" />">Review</a>
 				</div>
 			</section>
 		</div>

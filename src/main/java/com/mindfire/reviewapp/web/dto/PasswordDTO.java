@@ -1,5 +1,10 @@
 package com.mindfire.reviewapp.web.dto;
 
+/**
+ * The DTO class for the Userinfo table which deals with changing password of the user
+ * @author mindfire
+ *
+ */
 public class PasswordDTO {
 	private String password;
 	private String newpassword;

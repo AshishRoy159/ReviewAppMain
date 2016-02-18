@@ -10,6 +10,11 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import com.mindfire.reviewapp.spring.config.SpringConfiguration;
 
+/**
+ * This is Initializer class. Initialization and initial Servlet mapping is done here.
+ * @author mindfire
+ *
+ */
 public class SpringInitializer implements WebApplicationInitializer {
 	 
     public void onStartup(ServletContext container) throws ServletException {

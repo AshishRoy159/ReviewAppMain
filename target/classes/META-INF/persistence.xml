@@ -3,5 +3,6 @@
 	<persistence-unit name="Spring TestProject">
 		<class>com.mindfire.reviewapp.web.domain.App</class>
 		<class>com.mindfire.reviewapp.web.domain.User</class>
+		<class>com.mindfire.reviewapp.web.domain.Developer</class>
 	</persistence-unit>
 </persistence>
