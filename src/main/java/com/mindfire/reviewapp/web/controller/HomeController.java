@@ -61,9 +61,9 @@ public class HomeController {
 	 * @return returns the login page
 	 */
 	@RequestMapping(value = "login")
-	public String login(Model model, @ModelAttribute("login") UserLoginDTO dto){
+	public ModelAndView login(Model model, @ModelAttribute("login") UserLoginDTO dto){
 		model.addAttribute("login", new UserLoginDTO());
-		return "login";
+		return new ModelAndView("login");
 	}
 	
 	/**

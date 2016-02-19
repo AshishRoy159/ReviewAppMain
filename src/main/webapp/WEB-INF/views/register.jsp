@@ -82,12 +82,15 @@
 	</form:form>
 	<%} else { %>
 	<div align="center"><h1 id="title">You are Already Registered!! </h1></div>
-	<%} %>
+	
 	<div align="center">
 		<h4 id="new">
 			Want to Log Out? <a href="logout">Logout Here</a>
 		</h4>
 	</div>
+	<div id="blank"></div>
+	<%} %>
+	
 	<div align="center">
 		<a class="btn btn-success" href="index">Go Home</a>
 	</div>

@@ -33,4 +33,7 @@ public interface DeveloperRepository extends JpaRepository<Developer, Long>{
 	 * @see org.springframework.data.jpa.repository.JpaRepository#findAll()
 	 */
 	public List<Developer> findAll();
+	
+	public Developer findByName(String name);
+	
 }

@@ -54,7 +54,7 @@ public class UserService {
 					return "register";
 				} else {
 					model.addAttribute("status", "Registerd Successfully!!. Log in to continue.");
-					return "login";
+					return "redirect:login";
 				}
 			} else {
 				model.addAttribute("userExists", "Email already Registered!!");

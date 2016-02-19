@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 
 /**
@@ -17,7 +18,7 @@ public class Developer implements Serializable {
 
 	@Id
 	@Column(name="developer_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer developerId;
 
 	@Temporal(TemporalType.DATE)
@@ -25,11 +26,15 @@ public class Developer implements Serializable {
 
 	private String address;
 
-	private Timestamp modifed;
+	private Timestamp modified;
 
 	private String name;
 
 	private String website;
+
+	//bi-directional many-to-one association to App
+	@OneToMany(mappedBy="developer")
+	private List<App> apps;
 
 	public Developer() {
 	}
@@ -58,12 +63,12 @@ public class Developer implements Serializable {
 		this.address = address;
 	}
 
-	public Timestamp getModifed() {
-		return this.modifed;
+	public Timestamp getModified() {
+		return this.modified;
 	}
 
-	public void setModifed(Timestamp modifed) {
-		this.modifed = modifed;
+	public void setModified(Timestamp modified) {
+		this.modified = modified;
 	}
 
 	public String getName() {
@@ -81,6 +86,27 @@ public class Developer implements Serializable {
 	public void setWebsite(String website) {
 		this.website = website;
 	}
-	
+
+	public List<App> getApps() {
+		return this.apps;
+	}
+
+	public void setApps(List<App> apps) {
+		this.apps = apps;
+	}
+
+	public App addApp(App app) {
+		getApps().add(app);
+		app.setDeveloper(this);
+
+		return app;
+	}
+
+	public App removeApp(App app) {
+		getApps().remove(app);
+		app.setDeveloper(null);
+
+		return app;
+	}
 
 }

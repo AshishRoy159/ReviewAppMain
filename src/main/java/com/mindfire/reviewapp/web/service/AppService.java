@@ -10,11 +10,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mindfire.reviewapp.web.domain.App;
+import com.mindfire.reviewapp.web.domain.Comment;
 import com.mindfire.reviewapp.web.domain.Developer;
+import com.mindfire.reviewapp.web.domain.Rating;
 import com.mindfire.reviewapp.web.dto.AppRegDTO;
 import com.mindfire.reviewapp.web.dto.AppSearchDTO;
+import com.mindfire.reviewapp.web.dto.CommentRatingDTO;
 import com.mindfire.reviewapp.web.repository.AppRepository;
+import com.mindfire.reviewapp.web.repository.CommentRepository;
 import com.mindfire.reviewapp.web.repository.DeveloperRepository;
+import com.mindfire.reviewapp.web.repository.RatingRepository;
+import com.mindfire.reviewapp.web.repository.UserRepository;
 
 /**
  * This is a Service class for all App related services.
@@ -33,6 +39,15 @@ public class AppService {
 	
 	@Autowired
 	private DeveloperRepository developerRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private CommentRepository commentRepository;
+	
+	@Autowired
+	private RatingRepository ratingRepository;
 	
 	/**
 	 * Creates a new app entry on the database.
@@ -53,7 +68,7 @@ public class AppService {
 			App newApp = new App();
 			
 			newApp.setName(dto.getAppname());
-			newApp.setDeveloperid(dev.get(0).getDeveloperId());
+			newApp.setDeveloper(developerRepository.findByName(dto.getDevname()));
 			newApp.setWebsite(dto.getWebsite());
 			newApp.setDetails(dto.getAppdetails());
 			newApp.setPlatform(dto.getPlatform());
@@ -95,12 +110,12 @@ public class AppService {
 	public ModelAndView viewAppDetails(Integer appId){
 		App apps = appRepository.findByAppId(appId);
 		
-		Developer dev = developerRepository.findByDeveloperId(apps.getDeveloperid());
+		
 		
 		Map<String, Object> model = new HashMap<String, Object>();
 		
 		model.put("apps", apps);
-		model.put("dev", dev.getName());
+		
 		return new ModelAndView("detailnreview", model);
 	}
 	
@@ -140,5 +155,29 @@ public class AppService {
 		return new ModelAndView("topIPhone", model);
 	}
 	
+	public String addReview(CommentRatingDTO dto){
+		
+		
+		Comment comment = new Comment();
+		comment.setApp(appRepository.findByAppId(dto.getAppid()));
+		comment.setUserinfo(userRepository.findByUsername(dto.getUserName()));
+		comment.setComment(dto.getComment());
+		
+		commentRepository.save(comment);
+		
+		Rating rating = new Rating();
+		
+		rating.setApp(appRepository.findByAppId(dto.getAppid()));
+		rating.setUserinfo(userRepository.findByUsername(dto.getUserName()));
+		rating.setRating(dto.getRating());
+		
+		ratingRepository.save(rating);
+		
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("apps",comment.getApp());
+		
+		return "redirect:../detailnreview/{appId}";
+		
+	}
 	
 }

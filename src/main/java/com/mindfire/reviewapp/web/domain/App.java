@@ -1,14 +1,10 @@
 package com.mindfire.reviewapp.web.domain;
 
 import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Date;
 import java.sql.Timestamp;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import java.util.List;
 
 
 /**
@@ -22,20 +18,16 @@ public class App implements Serializable {
 
 	@Id
 	@Column(name="app_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer appId;
 
-	@Column(nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	private Timestamp added;
+	@Temporal(TemporalType.DATE)
+	private Date added;
 
 	private String bannerimg;
 
 	private String details;
 
-
-	private Integer developerid;
-	
-	@Column(nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Timestamp modified;
 
 	private String name;
@@ -45,16 +37,21 @@ public class App implements Serializable {
 	private float rating;
 
 	private String screenshots;
-	
+
 	private String website;
 
-	public String getWebsite() {
-		return website;
-	}
+	//bi-directional many-to-one association to Developer
+	@ManyToOne
+	@JoinColumn(name="developerid")
+	private Developer developer;
 
-	public void setWebsite(String website) {
-		this.website = website;
-	}
+	//bi-directional many-to-one association to Comment
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="app")
+	private List<Comment> comments;
+
+	//bi-directional many-to-one association to Rating
+	@OneToMany(mappedBy="app")
+	private List<Rating> ratings;
 
 	public App() {
 	}
@@ -67,16 +64,16 @@ public class App implements Serializable {
 		this.appId = appId;
 	}
 
+	public Date getAdded() {
+		return this.added;
+	}
+
+	public void setAdded(Date added) {
+		this.added = added;
+	}
+
 	public String getBannerimg() {
 		return this.bannerimg;
-	}
-
-	public Timestamp getAdded() {
-		return added;
-	}
-
-	public void setAdded(Timestamp added) {
-		this.added = added;
 	}
 
 	public void setBannerimg(String bannerimg) {
@@ -89,14 +86,6 @@ public class App implements Serializable {
 
 	public void setDetails(String details) {
 		this.details = details;
-	}
-
-	public Integer getDeveloperid() {
-		return this.developerid;
-	}
-
-	public void setDeveloperid(Integer developerid) {
-		this.developerid = developerid;
 	}
 
 	public Timestamp getModified() {
@@ -137,6 +126,66 @@ public class App implements Serializable {
 
 	public void setScreenshots(String screenshots) {
 		this.screenshots = screenshots;
+	}
+
+	public String getWebsite() {
+		return this.website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public Developer getDeveloper() {
+		return this.developer;
+	}
+
+	public void setDeveloper(Developer developer) {
+		this.developer = developer;
+	}
+
+	public List<Comment> getComments() {
+		return this.comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Comment addComment(Comment comment) {
+		getComments().add(comment);
+		comment.setApp(this);
+
+		return comment;
+	}
+
+	public Comment removeComment(Comment comment) {
+		getComments().remove(comment);
+		comment.setApp(null);
+
+		return comment;
+	}
+
+	public List<Rating> getRatings() {
+		return this.ratings;
+	}
+
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
+
+	public Rating addRating(Rating rating) {
+		getRatings().add(rating);
+		rating.setApp(this);
+
+		return rating;
+	}
+
+	public Rating removeRating(Rating rating) {
+		getRatings().remove(rating);
+		rating.setApp(null);
+
+		return rating;
 	}
 
 }

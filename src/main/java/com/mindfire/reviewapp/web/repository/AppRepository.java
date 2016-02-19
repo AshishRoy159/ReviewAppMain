@@ -16,7 +16,7 @@ import com.mindfire.reviewapp.web.domain.App;
 public interface AppRepository extends JpaRepository<App, Long> {
 
 	/**
-	 * Fins an app by its name and platform
+	 * Finds an app by its name and platform
 	 * @param name
 	 * @param platform
 	 * @return returns list of apps

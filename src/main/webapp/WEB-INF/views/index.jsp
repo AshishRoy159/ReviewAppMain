@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Mobile App Review</title>
-<link href="resources/css/bootstrap.css" rel="stylesheet" />
-<link href="resources/css/mystyle.css" rel="stylesheet" />
-<script src="resources/js/jquery-2.2.0.js"></script>
-<script src="resources/js/myScript.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/mystyle.css" rel="stylesheet" />
+<script src="${pageContext.request.contextPath}/resources/js/jquery-2.2.0.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/myScript.js"></script>
 
 </head>
 <body id="home">
@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="col-md-9" id="content">
 			<figure>
-				<img id="banner" alt="Main Banner" src="resources/images/header.jpg">
+				<img id="banner" alt="Main Banner" src="${pageContext.request.contextPath}/resources/images/header.jpg">
 			</figure>
 			<div>
 				<hr>
@@ -38,7 +38,7 @@
 								</h1>
 								<figure>
 									<img class="img-thumbnail" id="top" alt="Top Android App"
-										src="resources/images/androidtopreview.jpg">
+										src="${pageContext.request.contextPath}/resources/images/androidtopreview.jpg">
 								</figure>
 								<br>
 								<p id="topandroidtext">Vivamus elementum semper nisi. Aenean
@@ -55,7 +55,7 @@
 							<div>
 								<div class="col-md-6">
 									<figure>
-										<img id="rating" alt="Rating" src="resources/images/rating.png">
+										<img id="rating" alt="Rating" src="${pageContext.request.contextPath}/resources/images/rating.png">
 									</figure>
 								</div>
 								<div class="col-md-6" align="right"></div>
@@ -71,7 +71,7 @@
 								<h1 id="pop">Twitter</h1>
 								<figure>
 									<img class="img-thumbnail" id="top" alt="Top iPhone App"
-										src="resources/images/topiosapp.png">
+										src="${pageContext.request.contextPath}/resources/images/topiosapp.png">
 								</figure>
 								<br>
 								<p id="topandroidtext">Vivamus elementum semper nisi. Aenean
@@ -88,7 +88,7 @@
 							<div>
 								<div class="col-md-6">
 									<figure>
-										<img id="rating" alt="Rating" src="resources/images/rating.png">
+										<img id="rating" alt="Rating" src="${pageContext.request.contextPath}/resources/images/rating.png">
 									</figure>
 								</div>
 								<div class="col-md-6" align="right"></div>
@@ -106,7 +106,7 @@
 							<h1 id="pop">Whatsapp</h1>
 							<figure>
 								<img class="img-thumbnail" id="top" alt="Top Windows App"
-									src="resources/images/topwindows.png">
+									src="${pageContext.request.contextPath}/resources/images/topwindows.png">
 							</figure>
 							<br>
 							<p id="topandroidtext">Vivamus elementum semper nisi. Aenean
@@ -123,7 +123,7 @@
 						<div>
 							<div class="col-md-6">
 								<figure>
-									<img id="rating" alt="Rating" src="resources/images/rating.png">
+									<img id="rating" alt="Rating" src="${pageContext.request.contextPath}/resources/images/rating.png">
 								</figure>
 							</div>
 							<div class="col-md-6" align="right"></div>
@@ -139,7 +139,7 @@
 			<section>
 				<header id="recent">Recent Reviews</header>
 				<img class="img-thumbnail" id="recentimg" alt="Recent Review"
-					src="resources/images/recentimg.jpg">
+					src="${pageContext.request.contextPath}/resources/images/recentimg.jpg">
 				<div id="blank"></div>
 				<p id="recentreview">Lorem ipsum dolor sit amet, consectetuer
 					adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
