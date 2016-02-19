@@ -154,7 +154,10 @@ public class AppService {
 		model.put("apps", apps);
 		return new ModelAndView("topIPhone", model);
 	}
-	
+	/**
+	 * Stores the Comment on the particular app to the database and returns to the same page.
+	 * @return returns the page with list of results
+	 */
 	public String addReview(CommentRatingDTO dto){
 		
 		
