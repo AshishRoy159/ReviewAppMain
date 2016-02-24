@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import com.mindfire.reviewapp.web.domain.Rating;
 import com.mindfire.reviewapp.web.dto.AppRegDTO;
 import com.mindfire.reviewapp.web.dto.AppSearchDTO;
 import com.mindfire.reviewapp.web.dto.CommentRatingDTO;
+import com.mindfire.reviewapp.web.exception.ResourceNotFoundException;
 import com.mindfire.reviewapp.web.repository.AppRepository;
 import com.mindfire.reviewapp.web.repository.CommentRepository;
 import com.mindfire.reviewapp.web.repository.DeveloperRepository;
@@ -48,6 +51,7 @@ public class AppService {
 	
 	@Autowired
 	private RatingRepository ratingRepository;
+	
 	
 	/**
 	 * Creates a new app entry on the database.
@@ -103,14 +107,16 @@ public class AppService {
 	}
 
 	/**
-	 * This method returns the details of the app whoose id is passed as an argument.
+	 * This method returns the details of the app whose id is passed as an argument.
 	 * @param appId
 	 * @return returns a page with detailed result.
 	 */
 	public ModelAndView viewAppDetails(Integer appId){
 		App apps = appRepository.findByAppId(appId);
 		
-		
+		if(apps == null || apps.equals("")){
+			throw new ResourceNotFoundException();
+		}
 		
 		Map<String, Object> model = new HashMap<String, Object>();
 		
@@ -158,7 +164,8 @@ public class AppService {
 	 * Stores the Comment on the particular app to the database and returns to the same page.
 	 * @return returns the page with list of results
 	 */
-	public String addReview(CommentRatingDTO dto){
+	public String addReview(CommentRatingDTO dto, HttpSession session){
+		
 		
 		
 		Comment comment = new Comment();

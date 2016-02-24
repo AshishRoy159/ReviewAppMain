@@ -49,8 +49,6 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("search", new AppSearchDTO());
-		
 		return "index";
 	}
 	
@@ -62,7 +60,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "login")
 	public ModelAndView login(Model model, @ModelAttribute("login") UserLoginDTO dto){
-		model.addAttribute("login", new UserLoginDTO());
 		return new ModelAndView("login");
 	}
 	
@@ -74,7 +71,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "register")
 	public String register(Model model, @ModelAttribute("register") UserRegDTO dto){
-		model.addAttribute("register", new UserRegDTO());
 		return "register";
 	}
 	/**
@@ -85,7 +81,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "topAndroid")
 	public ModelAndView topAndroid(@ModelAttribute("search") AppSearchDTO dto, Model model){
-		model.addAttribute("search", new AppSearchDTO());
 		return appService.topAndroid();
 	}
 	/**
@@ -96,7 +91,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "topWindows")
 	public ModelAndView topWindows(@ModelAttribute("search") AppSearchDTO dto, Model model){
-		model.addAttribute("search", new AppSearchDTO());
 		return appService.topWindows();
 	}
 	/**
@@ -107,7 +101,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "topIPhone")
 	public ModelAndView topIPhone(@ModelAttribute("search") AppSearchDTO dto, Model model){
-		model.addAttribute("search", new AppSearchDTO());
 		return appService.topIPhone();
 	}
 	

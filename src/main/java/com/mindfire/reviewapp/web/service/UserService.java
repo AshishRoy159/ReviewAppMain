@@ -67,7 +67,7 @@ public class UserService {
 	}
 
 	/**
-	 * this method checks in the database eith provided credentials and if they match, logs in the user
+	 * this method checks in the database with provided credentials and if they match, logs in the user
 	 * @param dto
 	 * @param session
 	 * @param model
@@ -76,6 +76,7 @@ public class UserService {
 	 */
 	public String loginUser(UserLoginDTO dto, HttpSession session, Model model) {
 
+		if(session.getAttribute("username") == null || session.getAttribute("username").equals("")){
 		User checkUser = userRepository.findByUsername(dto.getUsername());
 
 		String password = checkUser.getPassword();
@@ -91,6 +92,9 @@ public class UserService {
 			}
 		} else {
 			model.addAttribute("status", "Incorrect Username or Password!!");
+			return "login";
+		}
+		} else {
 			return "login";
 		}
 	}

@@ -15,9 +15,6 @@
 	<div id="mainhead">	
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	</div>
-	<div class="asd" onclick = "clicktest();">
-	Hello
-	</div>
 	<div class="container">
 		<div class="col-md-9" id="content">
 			<figure>

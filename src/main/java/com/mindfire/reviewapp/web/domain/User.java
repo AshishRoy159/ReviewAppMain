@@ -42,11 +42,11 @@ public class User implements Serializable {
 	private String username;
 
 	//bi-directional many-to-one association to Comment
-	@OneToMany(mappedBy="userinfo")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="userinfo")
 	private List<Comment> comments;
 
 	//bi-directional many-to-one association to Rating
-	@OneToMany(mappedBy="userinfo")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="userinfo")
 	private List<Rating> ratings;
 
 	public User() {

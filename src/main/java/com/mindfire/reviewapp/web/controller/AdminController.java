@@ -45,7 +45,6 @@ public class AdminController {
 	 */
 	@RequestMapping(value = {"admin","admin/index"}, method = RequestMethod.GET)
 	public ModelAndView home(Model model, @ModelAttribute("appregister") AppRegDTO dto) {
-		model.addAttribute("appregister", new AppRegDTO());
 		return developerService.adminIndex();
 	}
 	

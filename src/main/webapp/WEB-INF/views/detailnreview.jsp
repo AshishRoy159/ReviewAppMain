@@ -89,17 +89,18 @@
 					if (session.getAttribute("user") == null || session.getAttribute("user").equals("")) {
 				%>
 				<div id="blank"></div>
+				<div class="container-fluid" align="center">
+					<h1 id="ratingtxt">Please Log In to Review!!</h1>
+				</div>
 				<%
 					} else {
 				%>
-				<form:form action="${appId}" modelAttribute="review"
-					method="post">
+				<form:form action="${appId}" modelAttribute="review" method="post">
 					<div class="container-fluid">
 						<form:hidden path="userName"
 							value='<%=session.getAttribute("username")%>' />
-							<form:hidden path="appid"
-							value="${apps.appId }" />
-								
+						<form:hidden path="appid" value="${apps.appId }" />
+
 						<div id="ratingtxt" class="col-md-4" align="left">Your
 							Rating</div>
 						<div class="col-md-8" align="right">
@@ -117,111 +118,109 @@
 								:
 							</div>
 							<form:textarea id="nomargin" path="comment"
-								cssClass="form-control" />
+								cssClass="form-control" required="required" />
 						</div>
 						<div></div>
 						<input class="btn btn-default" type="submit" value="Post" /> <input
 							class="btn btn-default" type="reset" value="Reset" />
 					</div>
-
-
 				</form:form>
 				<%
 					}
 				%>
 			</div>
 			<hr>
-<c:forEach var="i" items="${apps.comments}">
-			<div class="row">
-				<div class="col-sm-2">
-					<div class="thumbnail">
-						<img class="img-responsive user-photo"
-							src="${pageContext.request.contextPath}/resources/images/avatar.png">
-					</div>
-					<!-- /thumbnail -->
-				</div>
-				<!-- /col-sm-1 -->
-
-				<div class="col-sm-10">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<strong>${i.userinfo.fname}</strong> <span class="text-muted">${i.added }</span>
+			<c:forEach var="i" items="${apps.comments}">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="thumbnail">
+							<img class="img-responsive user-photo"
+								src="${pageContext.request.contextPath}/resources/images/avatar.png">
 						</div>
-						<div class="panel-body">${i.comment}</div>
-						<!-- /panel-body -->
 					</div>
-					<!-- /panel panel-default -->
-				</div>
-				</div>
-				</c:forEach>
-				
-					<section>
-						<div class="container-fluid">
-						<div class="col-md-3"><h2 id="logintxt"></h2></div>
-						
-						
-						<div class="col-md-9" align="right"><h2 id="detail"></h2></div>
+
+					<div class="col-sm-10">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<strong>${i.userinfo.fname}</strong> <span class="text-muted"></span>
+							</div>
+							<div class="panel-body">${i.comment}</div>
 						</div>
-					</section>
-				
-			
-			</div>
+					</div>
+				</div>
+			</c:forEach>
+
+			<section>
+				<div class="container-fluid">
+					<div class="col-md-3">
+						<h2 id="logintxt"></h2>
+					</div>
 
 
-			<div class="col-md-4">
-				<div class="panel panel-header">
-					<h1 id="regtitle">App of the Week</h1>
-				</div>
-				<section>
-					<div class="panel">
-						<h2 id="details">Whatsapp</h2>
-						<figure>
-							<img alt="App of the Week"
-								src="${pageContext.request.contextPath}/resources/images/topwindows.png"
-								height="350px" width="350px">
-						</figure>
-						<div id="blank"></div>
-						<p>Vivamus elementum semper nisi. Aenean vulputate eleifend
-							tellus. Aenean leo ligula, porttitor eu, consequat vitae,
-							eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
-							feugiat a, tellus. Phasellus viverra nulla ut metus varius
-							laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-							vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-							Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus,
-							sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-							Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+					<div class="col-md-9" align="right">
+						<h2 id="detail"></h2>
 					</div>
-				</section>
-				<hr>
-				<div class="panel panel-header">
-					<h1 id="regtitle">App of the Month</h1>
 				</div>
-				<section>
-					<div class="panel">
-						<h2 id="details">Twitter</h2>
-						<figure>
-							<img alt="App of the Week"
-								src="${pageContext.request.contextPath}/resources/images/topiosapp.png"
-								height="350px" width="350px">
-						</figure>
-						<div id="blank"></div>
-						<p>Vivamus elementum semper nisi. Aenean vulputate eleifend
-							tellus. Aenean leo ligula, porttitor eu, consequat vitae,
-							eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
-							feugiat a, tellus. Phasellus viverra nulla ut metus varius
-							laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi
-							vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-							Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus,
-							sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
-							Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
-					</div>
-				</section>
-			</div>
+			</section>
+
+
 		</div>
-		<div id="blank"></div>
 
-		<footer id="footer">
-			<%@ include file="/WEB-INF/views/footer.jsp"%>
-		</footer>
+
+		<div class="col-md-4">
+			<div class="panel panel-header">
+				<h1 id="regtitle">App of the Week</h1>
+			</div>
+			<section>
+				<div class="panel">
+					<h2 id="details">Whatsapp</h2>
+					<figure>
+						<img alt="App of the Week"
+							src="${pageContext.request.contextPath}/resources/images/topwindows.png"
+							height="350px" width="350px">
+					</figure>
+					<div id="blank"></div>
+					<p>Vivamus elementum semper nisi. Aenean vulputate eleifend
+						tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+						ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+						tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque
+						rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
+						Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
+						Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
+						libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
+						blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+				</div>
+			</section>
+			<hr>
+			<div class="panel panel-header">
+				<h1 id="regtitle">App of the Month</h1>
+			</div>
+			<section>
+				<div class="panel">
+					<h2 id="details">Twitter</h2>
+					<figure>
+						<img alt="App of the Week"
+							src="${pageContext.request.contextPath}/resources/images/topiosapp.png"
+							height="350px" width="350px">
+					</figure>
+					<div id="blank"></div>
+					<p>Vivamus elementum semper nisi. Aenean vulputate eleifend
+						tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+						ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+						tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque
+						rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
+						Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
+						Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
+						libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
+						blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="blank"></div>
+
+	<footer id="footer">
+		<%@ include file="/WEB-INF/views/footer.jsp"%>
+	</footer>
 </body>
 </html>

@@ -14,4 +14,5 @@ import com.mindfire.reviewapp.web.domain.Rating;
 @Repository
 public interface RatingRepository extends JpaRepository <Rating, Integer>{
 
+	
 }
