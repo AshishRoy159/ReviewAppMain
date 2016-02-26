@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * This the Resource not found Exception class. It extends then Runtime exception class
+ * 
  * @author mindfire
  *
  */

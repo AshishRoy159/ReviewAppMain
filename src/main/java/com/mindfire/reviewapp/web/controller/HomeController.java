@@ -21,6 +21,7 @@ import com.mindfire.reviewapp.web.service.AppService;
 
 /**
  * Handles requests for the application home page and other page's mapping.
+ * 
  * @author mindfire
  *
  */
@@ -34,6 +35,7 @@ public class HomeController {
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
+	 * 
 	 * @param dto
 	 * @param locale
 	 * @param model
@@ -54,6 +56,7 @@ public class HomeController {
 	
 	/**
 	 * Maps the login page of the application
+	 * 
 	 * @param model
 	 * @param dto
 	 * @return returns the login page
@@ -65,6 +68,7 @@ public class HomeController {
 	
 	/**
 	 * Maps the register page of the application
+	 * 
 	 * @param model
 	 * @param dto
 	 * @return returns the registration page for the user.
@@ -75,6 +79,7 @@ public class HomeController {
 	}
 	/**
 	 * Shows all the apps which are on android platform on a page
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns the page with the list of application.
@@ -85,6 +90,7 @@ public class HomeController {
 	}
 	/**
 	 * Shows all the apps which are on windows platform on a page
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns the page with the list of application.
@@ -95,6 +101,7 @@ public class HomeController {
 	}
 	/**
 	 * Shows all the apps which are on iphone platform on a page
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns the page with the list of application.

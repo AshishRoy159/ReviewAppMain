@@ -6,10 +6,10 @@ import org.springframework.stereotype.Repository;
 import com.mindfire.reviewapp.web.domain.Rating;
 
 /**
- * Finds an app by its name and platform
- * @param name
- * @param platform
- * @return returns list of apps
+ * This is the Repository for the Rating table in the database.
+ * 
+ * @author mindfire
+ *
  */
 @Repository
 public interface RatingRepository extends JpaRepository <Rating, Integer>{

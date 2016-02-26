@@ -10,6 +10,7 @@ import com.mindfire.reviewapp.web.domain.Comment;
 
 /**
  * The Comment table's Repository.
+ * 
  * @author mindfire
  *
  */
@@ -18,6 +19,7 @@ public interface CommentRepository extends JpaRepository<Comment, Integer>{
 	
 	/**
 	 * Finds the list of comments of a particular app
+	 * 
 	 * @param name
 	 * @param platform
 	 * @return returns list of apps

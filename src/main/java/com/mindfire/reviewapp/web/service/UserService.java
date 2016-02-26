@@ -16,6 +16,7 @@ import com.mindfire.reviewapp.web.repository.UserRepository;
 
 /**
  * This is a Service class for all User related services.
+ * 
  * @author mindfire
  *
  */
@@ -27,6 +28,7 @@ public class UserService {
 
 	/**
 	 * Adds a new entry of the user to the table.
+	 * 
 	 * @param dto
 	 * @param model 
 	 * @return returns the login page if successful, else returns to the registration page.
@@ -68,6 +70,7 @@ public class UserService {
 
 	/**
 	 * this method checks in the database with provided credentials and if they match, logs in the user
+	 * 
 	 * @param dto
 	 * @param session
 	 * @param model
@@ -101,6 +104,7 @@ public class UserService {
 
 	/**
 	 * This method provides the full credentials of the user/admin.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns the page with full profile details
@@ -119,6 +123,7 @@ public class UserService {
 
 	/**
 	 * This method logs out the admin.
+	 * 
 	 * @param model
 	 * @param session
 	 * @return returns to the index page of the website.
@@ -141,6 +146,7 @@ public class UserService {
 
 	/**
 	 * This method changes the password of the user
+	 * 
 	 * @param dto
 	 * @param model
 	 * @param session

@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * This Class Contains all Configurations for Spring Data JPA.
+ * 
  * @author mindfire
  *
  */

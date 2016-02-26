@@ -2,6 +2,7 @@ package com.mindfire.reviewapp.web.dto;
 
 /**
  * The DTO class for the Userinfo table which deals with Login of the user
+ * 
  * @author mindfire
  *
  */

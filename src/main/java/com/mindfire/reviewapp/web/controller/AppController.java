@@ -19,6 +19,7 @@ import com.mindfire.reviewapp.web.service.AppService;
 
 /**
  * This Class contains all App related controls.
+ * 
  * @author mindfire
  *
  */
@@ -28,6 +29,7 @@ public class AppController {
 	
 	/**
 	 * This is the exception handler method for the app id whose details are not available.
+	 * 
 	 * @return return the not found page.
 	 */
 	@ExceptionHandler(ResourceNotFoundException.class)
@@ -40,6 +42,7 @@ public class AppController {
 	
 	/**
 	 * This method searches the database for apps with matching name as input.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return Returns the page with list of apps with matching name as search input.
@@ -51,6 +54,7 @@ public class AppController {
 	
 	/**
 	 * This method returns the details page of the particular app whose appid is provided in the URL.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @param appId
@@ -63,6 +67,7 @@ public class AppController {
 	}
 	/**
 	 * This method returns the details page of the particular app after posting comment.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @param appId
@@ -75,6 +80,7 @@ public class AppController {
 	
 	/**
 	 * This method return the not found page if there is no entry in the database for provided app id.
+	 * 
 	 * @return returns the not found page.
 	 */
 	@RequestMapping(value = "notfound")

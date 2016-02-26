@@ -15,6 +15,7 @@ import com.mindfire.reviewapp.web.repository.DeveloperRepository;
 
 /**
  * This is a Service class for all Developer related services.
+ * 
  * @author mindfire
  *
  */
@@ -26,6 +27,7 @@ public class DeveloperService {
 	
 	/**
 	 * Thsi method adds a new developer entry to the Developer table in the database.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns information and redirects to the same page.

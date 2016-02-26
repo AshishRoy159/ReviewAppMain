@@ -15,6 +15,7 @@ import com.mindfire.reviewapp.web.service.UserService;
 
 /**
  * Deals with the mapping of the login, registration and logout of the user.
+ * 
  * @author mindfire
  *
  */
@@ -26,6 +27,7 @@ public class RegLoginController {
 	
 	/**
 	 * The method stores the information of the user in the database.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns the login page.
@@ -37,6 +39,7 @@ public class RegLoginController {
 	
 	/**
 	 * This method checks on the database, if the input is correct, logs in the user.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @param session
@@ -49,6 +52,7 @@ public class RegLoginController {
 	
 	/**
 	 * Logs out the User.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @param session

@@ -2,6 +2,7 @@ package com.mindfire.reviewapp.web.dto;
 
 /**
  * The DTO class for the Comment and Rating table which deals with the storing of inputs of the user
+ * 
  * @author mindfire
  *
  */

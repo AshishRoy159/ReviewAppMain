@@ -9,6 +9,7 @@ import com.mindfire.reviewapp.web.domain.App;
 
 /**
  * The App table's Repository.
+ * 
  * @author mindfire
  *
  */
@@ -17,6 +18,7 @@ public interface AppRepository extends JpaRepository<App, Long> {
 
 	/**
 	 * Finds an app by its name and platform
+	 * 
 	 * @param name
 	 * @param platform
 	 * @return returns list of apps
@@ -25,6 +27,7 @@ public interface AppRepository extends JpaRepository<App, Long> {
 	
 	/**
 	 * Finds an app by its platform
+	 * 
 	 * @param platform
 	 * @return returns list of apps
 	 */
@@ -32,6 +35,7 @@ public interface AppRepository extends JpaRepository<App, Long> {
 	
 	/**
 	 * Finds an app by its name.
+	 * 
 	 * @param name
 	 * @return returns list of apps
 	 */
@@ -39,6 +43,7 @@ public interface AppRepository extends JpaRepository<App, Long> {
 	
 	/**
 	 * Finds an app by its Id.
+	 * 
 	 * @param id
 	 * @return returns an app object.
 	 */

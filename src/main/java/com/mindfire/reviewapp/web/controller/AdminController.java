@@ -21,6 +21,7 @@ import com.mindfire.reviewapp.web.service.UserService;
 
 /**
  * This controller class controls all the admin related mappings.
+ * 
  * @author mindfire
  *
  */
@@ -39,6 +40,7 @@ public class AdminController {
 	
 	/**
 	 * This method maps the home page of admin. There is also the Application add form in this page.
+	 * 
 	 * @param model
 	 * @param dto
 	 * @return returns the admin's index page.
@@ -50,6 +52,7 @@ public class AdminController {
 	
 	/**
 	 * This method is executed when Admin adds a new entry of an Application.
+	 * 
 	 * @param model
 	 * @param dto
 	 * @return returns the information of the app registration (Successful/Unsuccessful).
@@ -60,6 +63,7 @@ public class AdminController {
 	}
 	/**
 	 * This method returns the profile details of the Admin.
+	 * 
 	 * @param model
 	 * @param dto
 	 * @return returns the Admin's profile page
@@ -71,6 +75,7 @@ public class AdminController {
 	
 	/**
 	 * This method shows all unapproved comments to the Admin.
+	 * 
 	 * @param model
 	 * @param dto
 	 * @return Returns the comments page
@@ -82,6 +87,7 @@ public class AdminController {
 	
 	/**
 	 * This method executes the logout of the Admin.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @param session
@@ -106,6 +112,7 @@ public class AdminController {
 	}
 	/**
 	 * This method maps the "changePassword.jsp" page.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns the ChangePassword page.
@@ -116,6 +123,7 @@ public class AdminController {
 	}
 	/**
 	 * This method maps the page to add a new developer.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns response and redirects to the same page.
@@ -126,6 +134,7 @@ public class AdminController {
 	}
 	/**
 	 * This method is executed when admin Adds a new entry of a developer.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return returns response and redirects to the same page.

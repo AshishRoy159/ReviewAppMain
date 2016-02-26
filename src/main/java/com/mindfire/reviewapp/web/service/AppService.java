@@ -27,6 +27,7 @@ import com.mindfire.reviewapp.web.repository.UserRepository;
 
 /**
  * This is a Service class for all App related services.
+ * 
  * @author mindfire
  *
  */
@@ -55,6 +56,7 @@ public class AppService {
 	
 	/**
 	 * Creates a new app entry on the database.
+	 * 
 	 * @param dto
 	 * @param model
 	 * @return reurns information and redirects to the admin home page.
@@ -94,6 +96,7 @@ public class AppService {
 	
 	/**
 	 * Searches the database for apps according to search inputs.
+	 * 
 	 * @param dto 
 	 * @return returns a page with the list of results.
 	 */
@@ -108,6 +111,7 @@ public class AppService {
 
 	/**
 	 * This method returns the details of the app whose id is passed as an argument.
+	 * 
 	 * @param appId
 	 * @return returns a page with detailed result.
 	 */
@@ -127,6 +131,7 @@ public class AppService {
 	
 	/**
 	 * Searches the database for apps having platform as android.
+	 * 
 	 * @return returns the page with list of results
 	 */
 	public ModelAndView topAndroid(){
@@ -139,6 +144,7 @@ public class AppService {
 	
 	/**
 	 * Searches the database for apps having platform as Windows.
+	 * 
 	 * @return returns the page with list of results
 	 */
 	public ModelAndView topWindows(){
@@ -151,6 +157,7 @@ public class AppService {
 	
 	/**
 	 * Searches the database for apps having platform as iPhone.
+	 * 
 	 * @return returns the page with list of results
 	 */
 	public ModelAndView topIPhone(){
@@ -162,6 +169,7 @@ public class AppService {
 	}
 	/**
 	 * Stores the Comment on the particular app to the database and returns to the same page.
+	 * 
 	 * @return returns the page with list of results
 	 */
 	public String addReview(CommentRatingDTO dto, HttpSession session){

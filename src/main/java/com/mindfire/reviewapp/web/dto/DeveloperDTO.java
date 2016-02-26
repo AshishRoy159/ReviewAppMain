@@ -2,6 +2,7 @@ package com.mindfire.reviewapp.web.dto;
 
 /**
  * The DTO class for the Developer table which deals with registration of the Developer
+ * 
  * @author mindfire
  *
  */

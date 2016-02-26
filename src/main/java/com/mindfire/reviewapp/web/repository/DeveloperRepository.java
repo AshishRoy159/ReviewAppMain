@@ -9,6 +9,7 @@ import com.mindfire.reviewapp.web.domain.Developer;
 
 /**
  * This is the Repository for the Developer table in the database.
+ * 
  * @author mindfire
  *
  */
@@ -17,6 +18,7 @@ public interface DeveloperRepository extends JpaRepository<Developer, Long>{
 
 	/**
 	 * Finds a Developer details by id.
+	 * 
 	 * @param id
 	 * @return returns an object of the Developer Class.
 	 */
@@ -24,6 +26,7 @@ public interface DeveloperRepository extends JpaRepository<Developer, Long>{
 	
 	/**
 	 * Finds List of Developer details by name.
+	 * 
 	 * @param name
 	 * @return returns list of objects of the Developer Class.
 	 */
@@ -33,7 +36,12 @@ public interface DeveloperRepository extends JpaRepository<Developer, Long>{
 	 * @see org.springframework.data.jpa.repository.JpaRepository#findAll()
 	 */
 	public List<Developer> findAll();
-	
+	/**
+	 * Finds a Developer details by name.
+	 * 
+	 * @param name
+	 * @return returns an object of the Developer Class.
+	 */
 	public Developer findByName(String name);
 	
 }

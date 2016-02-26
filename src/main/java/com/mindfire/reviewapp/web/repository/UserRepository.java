@@ -12,6 +12,7 @@ import com.mindfire.reviewapp.web.domain.User;
 
 /**
  * This is the Repository for the Userinfo table in the database.
+ * 
  * @author mindfire
  *
  */
@@ -20,6 +21,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 	/**
 	 * Finds User by username.
+	 * 
 	 * @param username
 	 * @return returns object user
 	 */
@@ -27,6 +29,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	/**
 	 * Finds User by email.
+	 * 
 	 * @param email
 	 * @return returns object user
 	 */
@@ -34,6 +37,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	/**
 	 * This method sets a new password of the user.
+	 * 
 	 * @param username
 	 * @param password
 	 * @return returns the login page.
